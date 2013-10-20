@@ -41,7 +41,7 @@ GRANT oerpadmin TO openerp;
     'images': [],
     'data': [
         'security/groups.xml',
-        #'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'view/menu.xml',
         'postgresql_view.xml',
         #'wizard/wizard.xml',

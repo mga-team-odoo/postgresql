@@ -1,0 +1,174 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* postgresql
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-20 15:59+0000\n"
+"PO-Revision-Date: 2013-10-20 15:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: postgresql
+#: field:postgres.activity,start_backend:0
+msgid "Backend Start"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,start_query:0
+msgid "Timestamp when the current query was started"
+msgstr ""
+
+#. module: postgresql
+#: model:ir.ui.menu,name:postgresql.menu_postgresql_stats
+msgid "Statistics"
+msgstr ""
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Disconnect"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,hostname:0
+msgid "Hostname"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,dbuser:0
+msgid "DB User"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,start_transaction:0
+msgid "Transaction Start"
+msgstr ""
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Group By..."
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,name:0
+msgid "Name of the database"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,start_transaction:0
+msgid "Timestamp when transation start"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,start_backend:0
+msgid "Timestamp when backend start"
+msgstr ""
+
+#. module: postgresql
+#: model:ir.model,name:postgresql.model_postgres_activity
+msgid "Display activity for this database"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,query:0
+msgid "Current query"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,pid:0
+msgid "PID"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,appname:0
+msgid "Name of the application"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,dbuser:0
+msgid "Name of the database user connected"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,name:0
+msgid "DB Name"
+msgstr ""
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Database Users"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,start_query:0
+msgid "Query Start"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,pid:0
+msgid "PID of the process"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,appname:0
+msgid "Application Name"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,hostip:0
+msgid "IP connect to this database"
+msgstr ""
+
+#. module: postgresql
+#: model:ir.actions.act_window,name:postgresql.act_open_postgresql_activity_view
+#: model:ir.ui.menu,name:postgresql.menu_postgresql_activity
+#: view:postgres.activity:0
+msgid "Activity"
+msgstr ""
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Action"
+msgstr ""
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Are you sure you want to disconnect this client?"
+msgstr ""
+
+#. module: postgresql
+#: model:res.groups,name:postgresql.group_postgresql
+msgid "Database Administrator"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,query:0
+msgid "Current query execute"
+msgstr ""
+
+#. module: postgresql
+#: model:ir.ui.menu,name:postgresql.menu_postgresql
+msgid "PostgreSQL"
+msgstr ""
+
+#. module: postgresql
+#: help:postgres.activity,hostname:0
+msgid "Hostname connect to this database"
+msgstr ""
+
+#. module: postgresql
+#: field:postgres.activity,hostip:0
+msgid "IP Address"
+msgstr ""
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Host IP"
+msgstr ""
+

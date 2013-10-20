@@ -1,0 +1,173 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * postgresql
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-20 15:59+0000\n"
+"PO-Revision-Date: 2013-10-20 18:07+0100\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.5.3\n"
+
+#. module: postgresql
+#: field:postgres.activity,start_backend:0
+msgid "Backend Start"
+msgstr "Date connexion du service"
+
+#. module: postgresql
+#: help:postgres.activity,start_query:0
+msgid "Timestamp when the current query was started"
+msgstr "Date et heure d'exécution de la requête actuelle"
+
+#. module: postgresql
+#: model:ir.ui.menu,name:postgresql.menu_postgresql_stats
+msgid "Statistics"
+msgstr "Statistiques"
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Disconnect"
+msgstr "Déconnecter"
+
+#. module: postgresql
+#: field:postgres.activity,hostname:0
+msgid "Hostname"
+msgstr "Nom d'hôte"
+
+#. module: postgresql
+#: field:postgres.activity,dbuser:0
+msgid "DB User"
+msgstr "Utilisateur de la BDD"
+
+#. module: postgresql
+#: field:postgres.activity,start_transaction:0
+msgid "Transaction Start"
+msgstr "Début transaction"
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Group By..."
+msgstr "Grouper par..."
+
+#. module: postgresql
+#: help:postgres.activity,name:0
+msgid "Name of the database"
+msgstr "Nom de la base de données"
+
+#. module: postgresql
+#: help:postgres.activity,start_transaction:0
+msgid "Timestamp when transation start"
+msgstr "Date et heure de lancement de la transaction"
+
+#. module: postgresql
+#: help:postgres.activity,start_backend:0
+msgid "Timestamp when backend start"
+msgstr "Date et heure de lancement du service"
+
+#. module: postgresql
+#: model:ir.model,name:postgresql.model_postgres_activity
+msgid "Display activity for this database"
+msgstr "Afficher les activités pour cette base de données"
+
+#. module: postgresql
+#: field:postgres.activity,query:0
+msgid "Current query"
+msgstr "Requête actuelle"
+
+#. module: postgresql
+#: field:postgres.activity,pid:0
+msgid "PID"
+msgstr "PID"
+
+#. module: postgresql
+#: help:postgres.activity,appname:0
+msgid "Name of the application"
+msgstr "Nom de l'application"
+
+#. module: postgresql
+#: help:postgres.activity,dbuser:0
+msgid "Name of the database user connected"
+msgstr "Nom de l'utilisateur connecté à la base de données"
+
+#. module: postgresql
+#: field:postgres.activity,name:0
+msgid "DB Name"
+msgstr "Nom BDD"
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Database Users"
+msgstr "Utilisateurs de la base de données"
+
+#. module: postgresql
+#: field:postgres.activity,start_query:0
+msgid "Query Start"
+msgstr "Départ requête"
+
+#. module: postgresql
+#: help:postgres.activity,pid:0
+msgid "PID of the process"
+msgstr "PID du processus"
+
+#. module: postgresql
+#: field:postgres.activity,appname:0
+msgid "Application Name"
+msgstr "Nom de l'application"
+
+#. module: postgresql
+#: help:postgres.activity,hostip:0
+msgid "IP connect to this database"
+msgstr "IP connecté à cette base de données"
+
+#. module: postgresql
+#: model:ir.actions.act_window,name:postgresql.act_open_postgresql_activity_view
+#: model:ir.ui.menu,name:postgresql.menu_postgresql_activity
+#: view:postgres.activity:0
+msgid "Activity"
+msgstr "Activité"
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Action"
+msgstr "Action"
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Are you sure you want to disconnect this client?"
+msgstr "Êtes vous sûr de vouloir déconnecter ce client?"
+
+#. module: postgresql
+#: model:res.groups,name:postgresql.group_postgresql
+msgid "Database Administrator"
+msgstr "Administrateur de base de données"
+
+#. module: postgresql
+#: help:postgres.activity,query:0
+msgid "Current query execute"
+msgstr "Requête actuellement exécutée"
+
+#. module: postgresql
+#: model:ir.ui.menu,name:postgresql.menu_postgresql
+msgid "PostgreSQL"
+msgstr "PostgreSQL"
+
+#. module: postgresql
+#: help:postgres.activity,hostname:0
+msgid "Hostname connect to this database"
+msgstr "Nom d'hôte connecter à cette base de données"
+
+#. module: postgresql
+#: field:postgres.activity,hostip:0
+msgid "IP Address"
+msgstr "Adresse IP"
+
+#. module: postgresql
+#: view:postgres.activity:0
+msgid "Host IP"
+msgstr "Adresse IP"
+

@@ -42,7 +42,7 @@ class PgActivity(orm.Model):
         'dbuser': fields.char('DB User', size=64, readonly=True, help='Name of the database user connected'),
         'appname': fields.char('Application Name', size=64, readonly=True, help='Name of the application'),
         'hostip': fields.char('IP Address', size=64, readonly=True, help='IP connect to this database'),
-        'hostname': fields.char('Label', size=64, readonly=True, help='Hostname connect to this database'),
+        'hostname': fields.char('Hostname', size=64, readonly=True, help='Hostname connect to this database'),
         'start_backend': fields.datetime('Backend Start', readonly=True, help='Timestamp when backend start'),
         'start_transaction': fields.datetime('Transaction Start', readonly=True, help='Timestamp when transation start'),
         'start_query': fields.datetime('Query Start', readonly=True, help='Timestamp when the current query was started'),
@@ -67,5 +67,16 @@ class PgActivity(orm.Model):
                         FROM pg_stat_activity
                        WHERE procpid != pg_backend_pid()
                          AND datname = current_database()""")
+
+    def disconnect(self, cr, uid, ids, context=None):
+        """
+        Execute pg_terminate_backend(), to disconnect properly the client
+        ids containt directly the list of sessions to disconnect
+        """
+        cr.execute('SET ROLE TO oerpadmin')
+        for id in ids:
+            cr.execute("""SELECT pg_terminate_backend(%s)""", (id,))
+        cr.execute("""RESET ROLE""")
+        return True
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

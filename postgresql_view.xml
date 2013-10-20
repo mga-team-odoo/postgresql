@@ -27,7 +27,7 @@
         <menuitem id="menu_postgresql_stats" 
             parent="menu_postgresql"
             sequence="20"
-            name="Label"/>
+            name="Statistics"/>
 
         <record id="view_postgresql_activity_tree" model="ir.ui.view">
             <field name="name">postgres.activity.tree</field>
@@ -44,6 +44,8 @@
                     <field name="start_backend"/>
                     <field name="start_transaction"/>
                     <field name="start_query"/>
+                    <button string="Disconnect" icon="gtk-cancel" type="object" name="disconnect"
+                        confirm="Are you sure you want to disconnect this client?"/>
                 </tree>
             </field>
         </record>
@@ -65,6 +67,9 @@
                     <field name="start_transaction"/>
                     <field name="start_query"/>
                     <field name="query"/>
+                    <separator string="Action" colspan="4"/>
+                    <button string="Disconnect" icon="gtk-cancel" type="object" name="disconnect"
+                        confirm="Are you sure you want to disconnect this client?"/>
                 </form>
             </field>
         </record>

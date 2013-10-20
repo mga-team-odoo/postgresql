@@ -40,9 +40,10 @@ GRANT oerpadmin TO openerp;
     'depends': ['base'],
     'images': [],
     'data': [
-        #'security/groups.xml',
+        'security/groups.xml',
         #'security/ir.model.access.csv',
-        #'view/menu.xml',
+        'view/menu.xml',
+        'postgresql_view.xml',
         #'wizard/wizard.xml',
         #'report/report.xml',
     ],

@@ -24,5 +24,10 @@
         #
         ##############################################################################
 
+        <menuitem id="menu_postgresql" 
+            sequence="20"
+            name="PostgreSQL"
+            groups="group_postgresql"/>
+
     </data>
 </openerp>

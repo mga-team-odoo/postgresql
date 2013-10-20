@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    postgresql module for OpenERP, PostgreSQL Management
-#    Copyright (C) 2013 MIROUNGA (<http://www.mirounga.fr/>) 
+#    Copyright (C) 2013 MIROUNGA (<http://www.mirounga.fr/>)
 #              Christophe CHAUVET <christophe.chauvet@mirounga.fr>
 #
 #    This file is a part of postgresql
@@ -22,8 +22,8 @@
 #
 ##############################################################################
 
-
-import report
-import wizard
+import postgresql
+#import report
+#import wizard
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

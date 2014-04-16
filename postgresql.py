@@ -53,6 +53,7 @@ class PgActivity(orm.Model):
         drop_view_if_exists(cr, 'postgres_activity')
         logger.info('Create postgresq_activity view for %s' % cr._cnx.server_version)
         pid_field = cr._cnx.server_version >= 90200 and 'pid' or 'procpid'
+        query_field = cr._cnx.server_version >= 90200 and 'query' or 'current_query'
         cr.execute("""CREATE OR REPLACE VIEW postgres_activity AS
                       SELECT """ + pid_field + """ AS id,
                              datname AS "name",
@@ -64,9 +65,9 @@ class PgActivity(orm.Model):
                              TO_CHAR(backend_start, 'YYYY-MM-DD HH24:MI:SS') as start_backend,
                              TO_CHAR(xact_start, 'YYYY-MM-DD HH24:MI:SS') as start_transaction,
                              TO_CHAR(query_start, 'YYYY-MM-DD HH24:MI:SS') as start_query,
-                             current_query as query
+                             """ + query_field + """ as query
                         FROM pg_stat_activity
-                       WHERE procpid != pg_backend_pid()
+                       WHERE """ + pid_field + """ != pg_backend_pid()
                          AND datname = current_database()""")
 
     def disconnect(self, cr, uid, ids, context=None):

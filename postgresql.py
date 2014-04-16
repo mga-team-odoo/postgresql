@@ -51,7 +51,7 @@ class PgActivity(orm.Model):
 
     def init(self, cr):
         drop_view_if_exists(cr, 'postgres_activity')
-        logger.info('Create postgresq_activity view')
+        logger.info('Create postgresq_activity view for %s' % cr._cnx.server_version)
         pid_field = cr._cnx.server_version >= 90200 and 'pid' or 'procpid'
         cr.execute("""CREATE OR REPLACE VIEW postgres_activity AS
                       SELECT procpid AS id,

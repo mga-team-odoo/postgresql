@@ -1,7 +1,7 @@
 PostgreSQL Module for OpenERP
 =============================
 
-.. image:: https://travis-ci.org/mga-team/openerp-postgresql.svg
+.. image:: https://travis-ci.org/mga-team/openerp-postgresql.svg?branch=7.0
    :target: https://travis-ci.org/mga-team/openerp-postgresql
 
 This module give some informations about the postgres statistic 

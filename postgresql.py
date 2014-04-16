@@ -27,7 +27,7 @@ from openerp.osv import fields
 from openerp.tools.sql import drop_view_if_exists
 
 import logging
-logger = logging.getLogger('postgresql')
+logger = logging.getLogger(__name__)
 
 
 class PgActivity(orm.Model):
@@ -50,8 +50,9 @@ class PgActivity(orm.Model):
     }
 
     def init(self, cr):
+        logger.info('PostgreSQL Server Version %s' % cr._cnx.server_version)
         drop_view_if_exists(cr, 'postgres_activity')
-        logger.info('Create postgresq_activity view for %s' % cr._cnx.server_version)
+        logger.info('Create postgresq_activity report view')
         pid_field = cr._cnx.server_version >= 90200 and 'pid' or 'procpid'
         query_field = cr._cnx.server_version >= 90200 and 'query' or 'current_query'
         cr.execute("""CREATE OR REPLACE VIEW postgres_activity AS

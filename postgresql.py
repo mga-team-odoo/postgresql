@@ -54,7 +54,7 @@ class PgActivity(orm.Model):
         logger.info('Create postgresq_activity view for %s' % cr._cnx.server_version)
         pid_field = cr._cnx.server_version >= 90200 and 'pid' or 'procpid'
         cr.execute("""CREATE OR REPLACE VIEW postgres_activity AS
-                      SELECT procpid AS id,
+                      SELECT """ + pid_field + """ AS id,
                              datname AS "name",
                              """ + pid_field + """ AS pid,
                              usename as dbuser,

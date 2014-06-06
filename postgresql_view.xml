@@ -156,12 +156,15 @@
                 <form string="Locks">
                     <field name="blocked_pid"/>
                     <field name="blocked_user"/>
-                    <field name="blocked_statement"/>
                     <field name="blocked_duration"/>
+                    <newline/>
+                    <field name="blocked_statement"/>
+                    <newline/>
                     <field name="blocking_pid"/>
                     <field name="blocking_user"/>
-                    <field name="blocking_statement"/>
                     <field name="blocking_duration"/>
+                    <newline/>
+                    <field name="blocking_statement"/>
                 </form>
             </field>
         </record>
@@ -175,6 +178,8 @@
                 <search string="Locks">
                     <field name="blocked_pid"/>
                     <field name="blocked_user"/>
+                    <field name="blocking_pid"/>
+                    <field name="blocking_user"/>
                 </search>
             </field>
         </record>

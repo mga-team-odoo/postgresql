@@ -17,4 +17,14 @@ The name of this module must be *postgresql*, see below the command line to retr
 
     git clone https://github.com/mga-team/openerp-postgresql.git ./postgresql
 
+Unit Test
+---------
+
+Unit test have been made by by Travis-CI and test several version of PostgreSQL:
+
+* 9.1
+* 9.2
+* 9.3
+* 9.4
+
 

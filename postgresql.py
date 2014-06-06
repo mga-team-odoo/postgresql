@@ -88,14 +88,14 @@ class PgLocks(orm.Model):
     _auto = False
 
     _columns = {
-        'blocked_pid': fields.integer('Blocked PID', help='Blocked PID'),
-        'blocked_user': fields.char('Blocked user', size=64, help='database user blocked'),
-        'blocking_statement': fields.text('Blocking statement', help='Blocking statement query'),
-        'blocking_duration': fields.char('Blocking duration', size=16, help='See the time elapsed since the query is blocked'),
-        'blocking_pid': fields.integer('Blocking PID', help='Blocking PID'),
-        'blocking_user': fields.char('Blocking user', size=64, help='database user blocking'),
-        'blocked_statement': fields.text('Blocked statement', help='Blocked statement query'),
-        'blocked_duration': fields.char('Blocked duration', size=16, help='See the time elapsed since the query is blocked'),
+        'blocked_pid': fields.integer('Blocked PID', readonly=True, help='Blocked PID'),
+        'blocked_user': fields.char('Blocked user', size=64, readonly=True, help='database user blocked'),
+        'blocking_statement': fields.text('Blocking statement', readonly=True, help='Blocking statement query'),
+        'blocking_duration': fields.char('Blocking duration', size=16, readonly=True, help='See the time elapsed since the query is blocked'),
+        'blocking_pid': fields.integer('Blocking PID', readonly=True, help='Blocking PID'),
+        'blocking_user': fields.char('Blocking user', size=64, readonly=True, help='database user blocking'),
+        'blocked_statement': fields.text('Blocked statement', readonly=True, help='Blocked statement query'),
+        'blocked_duration': fields.char('Blocked duration', size=16, readonly=True, help='See the time elapsed since the query is blocked'),
     }
 
     def init(self, cr):

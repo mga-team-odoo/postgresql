@@ -52,7 +52,7 @@ class PgActivity(orm.Model):
     def init(self, cr):
         logger.info('PostgreSQL Server Version %s' % cr._cnx.server_version)
         drop_view_if_exists(cr, 'postgres_activity')
-        logger.info('Create postgresq_activity report view')
+        logger.info('Create postgres_activity report view')
         pid_field = cr._cnx.server_version >= 90200 and 'pid' or 'procpid'
         query_field = cr._cnx.server_version >= 90200 and 'query' or 'current_query'
         cr.execute("""CREATE OR REPLACE VIEW postgres_activity AS
@@ -81,5 +81,60 @@ class PgActivity(orm.Model):
             cr.execute("""SELECT pg_terminate_backend(%s)""", (id,))
         cr.execute("""RESET ROLE""")
         return True
+
+class PgLocks(orm.Model):
+    _name = 'postgres.lock'
+    _description = 'Check locks on the database'
+    _auto = False
+
+    _columns = {
+        'blocked_pid': fields.integer('Blocked PID', help='Blocked PID'),
+        'blocked_user': fields.char('Blocked user', size=64, help='database user blocked'),
+        'blocking_statement': fields.text('Blocking statement', help='Blocking statement query'),
+        'blocking_duration': fields.char('Blocking duration', size=16, help='See the time elapsed since the query is blocked'),
+        'blocking_pid': fields.integer('Blocking PID', help='Blocking PID'),
+        'blocking_user': fields.char('Blocking user', size=64, help='database user blocking'),
+        'blocked_statement': fields.text('Blocked statement', help='Blocked statement query'),
+        'blocked_duration': fields.char('Blocked duration', size=16, help='See the time elapsed since the query is blocked'),
+    }
+
+    def init(self, cr):
+        drop_view_if_exists(cr, 'postgres_lock')
+        logger.info('Create postgres_lock report view')
+
+        if cr._cnx.server_version >= 90200:
+            cr.execute("""CREATE OR REPLACE VIEW postgres_lock AS
+                           SELECT bl.pid                 AS id,
+                                  bl.pid                 AS blocked_pid,
+                                  a.usename              AS blocked_user,
+                                  ka.query               AS blocking_statement,
+                                  to_char(now() - ka.query_start, 'HH24:MI:SS')::varchar AS blocking_duration,
+                                  kl.pid                 AS blocking_pid,
+                                  ka.usename             AS blocking_user,
+                                  a.query                AS blocked_statement,
+                                  to_char(now() - a.query_start, 'HH24:MI:SS')::varchar  AS blocked_duration
+                           FROM  pg_catalog.pg_locks         bl
+                            JOIN pg_catalog.pg_stat_activity a  ON a.pid = bl.pid
+                            LEFT JOIN pg_catalog.pg_locks         kl ON kl.transactionid = bl.transactionid AND kl.pid != bl.pid
+                            LEFT JOIN pg_catalog.pg_stat_activity ka ON ka.pid = kl.pid
+                           WHERE NOT bl.granted;""")
+        else:
+            cr.execute("""
+                          CREATE OR REPLACE VIEW postgres_lock AS
+                          SELECT bl.pid                 AS id,
+                                 bl.pid                 AS blocked_pid,
+                                 a.usename              AS blocked_user,
+                                 ka.current_query       AS blocking_statement,
+                                 to_char(now() - ka.query_start, 'HH24:MI:SS')::varchar AS blocking_duration,
+                                 kl.pid                 AS blocking_pid,
+                                 ka.usename             AS blocking_user,
+                                 a.current_query        AS blocked_statement,
+                                 to_char(now() - a.query_start, 'HH24:MI:SS')::varchar  AS blocked_duration
+                            FROM pg_catalog.pg_locks         bl
+                            JOIN pg_catalog.pg_stat_activity a  ON a.procpid = bl.pid
+                            LEFT JOIN pg_catalog.pg_locks         kl ON kl.transactionid = bl.transactionid AND kl.pid != bl.pid
+                            LEFT JOIN pg_catalog.pg_stat_activity ka ON ka.procpid = kl.pid
+                           WHERE NOT bl.granted;""")
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

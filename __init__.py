@@ -22,8 +22,7 @@
 #
 ##############################################################################
 
-import postgresql
-#import report
-#import wizard
+import activity
+import lock
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -5,7 +5,7 @@
         #
         #    postgresql module for OpenERP, PostgreSQL Management
         #    Copyright (C) 2013 MIROUNGA ([http://www.mirounga.fr/]) 
-        #              Christophe CHAUVET [christophe.chauvet@mirounga.fr]
+        #              Christophe CHAUVET [christophe.chauvet@gmail.com]
         #
         #    This file is a part of postgresql
         #
@@ -124,95 +124,6 @@
             parent="menu_postgresql_stats"
             sequence="20"
             action="act_open_postgresql_activity_view"/>
-
-        <!-- ************************************************************** -->
-        <!-- ** postgresql locks view************************************** -->
-        <!-- ************************************************************** -->
-        <record id="view_postgres_lock_tree" model="ir.ui.view">
-            <field name="name">postgres.lock.tree</field>
-            <field name="model">postgres.lock</field>
-            <field name="type">tree</field>
-            <field name="priority" eval="8"/>
-            <field name="arch" type="xml">
-                <tree string="Locks">
-                    <field name="blocked_pid"/>
-                    <field name="blocked_user"/>
-                    <field name="blocked_statement"/>
-                    <field name="blocked_duration"/>
-                    <field name="blocking_pid"/>
-                    <field name="blocking_user"/>
-                    <field name="blocking_statement"/>
-                    <field name="blocking_duration"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="view_postgres_lock_form" model="ir.ui.view">
-            <field name="name">postgres.lock.form</field>
-            <field name="model">postgres.lock</field>
-            <field name="type">form</field>
-            <field name="priority" eval="8"/>
-            <field name="arch" type="xml">
-                <form string="Locks">
-                    <field name="blocked_pid"/>
-                    <field name="blocked_user"/>
-                    <field name="blocked_duration"/>
-                    <newline/>
-                    <field name="blocked_statement"/>
-                    <newline/>
-                    <field name="blocking_pid"/>
-                    <field name="blocking_user"/>
-                    <field name="blocking_duration"/>
-                    <newline/>
-                    <field name="blocking_statement"/>
-                </form>
-            </field>
-        </record>
-
-        <record id="view_postgres_lock_search" model="ir.ui.view">
-            <field name="name">postgres.lock.search</field>
-            <field name="model">postgres.lock</field>
-            <field name="type">search</field>
-            <field name="priority" eval="8"/>
-            <field name="arch" type="xml">
-                <search string="Locks">
-                    <field name="blocked_pid"/>
-                    <field name="blocked_user"/>
-                    <field name="blocking_pid"/>
-                    <field name="blocking_user"/>
-                </search>
-            </field>
-        </record>
-
-        <record model="ir.actions.act_window" id="act_open_postgres_lock_view">
-            <field name="name">Locks</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">postgres.lock</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="view_postgres_lock_search"/>
-            <field name="domain">[]</field>
-            <field name="context">{}</field>
-        </record>
-
-        <record model="ir.actions.act_window.view" id="act_open_postgres_lock_view_form">
-            <field name="act_window_id" ref="act_open_postgres_lock_view"/>
-            <field name="sequence" eval="20"/>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_postgres_lock_form"/>
-        </record>
-
-        <record model="ir.actions.act_window.view" id="act_open_postgres_lock_view_tree">
-            <field name="act_window_id" ref="act_open_postgres_lock_view"/>
-            <field name="sequence" eval="10"/>
-            <field name="view_mode">tree</field>
-            <field name="view_id" ref="view_postgres_lock_tree"/>
-        </record>
-
-        <menuitem id="menu_postgres_lock"
-            parent="menu_postgresql_stats"
-            sequence="20"
-            action="act_open_postgres_lock_view"/>
 
     </data>
 </openerp>

@@ -1,8 +1,8 @@
 PostgreSQL Module for OpenERP
 =============================
 
-.. image:: https://travis-ci.org/mga-team/openerp-postgresql.svg?branch=7.0
-   :target: https://travis-ci.org/mga-team/openerp-postgresql
+.. image:: https://travis-ci.org/mga-team-odoo/postgresql.svg?branch=7.0
+   :target: https://travis-ci.org/mga-team-odoo/postgresql
 
 This module give some informations about the postgres statistic 
 
@@ -15,7 +15,7 @@ The name of this module must be *postgresql*, see below the command line to retr
 
 ::
 
-    git clone https://github.com/mga-team/openerp-postgresql.git ./postgresql
+    git clone https://github.com/mga-team-odoo/openerp-postgresql.git
 
 Unit Test
 ---------

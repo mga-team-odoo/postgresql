@@ -5,7 +5,7 @@ python:
 virtualenv:
   system_site_packages: true
 
-sudo: false
+sudo: true
 cache: pip
 
 addons:

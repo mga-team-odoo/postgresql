@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    postgresql module for OpenERP, PostgreSQL Management
-#    Copyright (C) 2013 MIROUNGA (<http://www.mirounga.fr/>)
+#    Copyright (C) 2013-2016 MIROUNGA (<http://www.mirounga.fr/>)
 #              Christophe CHAUVET <christophe.chauvet@mirounga.fr>
 #
 #    This file is a part of postgresql
@@ -24,7 +24,7 @@
 
 {
     'name': 'Postgresql',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'category': 'Tools',
     'description': """PostgreSQL Management
 
@@ -42,9 +42,9 @@ GRANT oerpadmin TO openerp;
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
-        'view/menu.xml',
-        'activity_view.xml',
-        'lock_view.xml',
+        'views/menu.xml',
+        'views/activity_view.xml',
+        'views/lock_view.xml',
         #'wizard/wizard.xml',
         #'report/report.xml',
     ],

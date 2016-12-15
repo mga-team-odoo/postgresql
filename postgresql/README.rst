@@ -1,12 +1,10 @@
 PostgreSQL Module for OpenERP
 =============================
 
-.. image:: https://travis-ci.org/mga-team-odoo/postgresql.svg?branch=7.0
+.. image:: https://travis-ci.org/mga-team-odoo/postgresql.svg?branch=8.0
    :target: https://travis-ci.org/mga-team-odoo/postgresql
 
 This module give some informations about the postgres statistic 
-
-Only available for 7.0, if you want to backport it send me a patch or i can purpose service to do that
 
 Installation
 ------------
@@ -26,5 +24,6 @@ Unit test have been made by by Travis-CI and test several version of PostgreSQL:
 * 9.2
 * 9.3
 * 9.4
+* 9.5
 
 

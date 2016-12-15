@@ -22,36 +22,7 @@
 #
 ##############################################################################
 
-{
-    'name': 'Postgresql',
-    'version': '8.0.1.0.0',
-    'category': 'Tools',
-    'description': """PostgreSQL Management
-
-This module can show statistics on the database,
-and create new user with GRANT SELECT
-
-!!! Before install this module, execute this query as a PostgreSQL SuperUSER
-
-CREATE ROLE oerpadmin SUPERUSER;
-GRANT oerpadmin TO openerp;
-""",
-    'author': 'MIROUNGA',
-    'website': 'http://www.mirounga.fr/',
-    'depends': ['base'],
-    'images': [],
-    'data': [
-        'security/groups.xml',
-        'security/ir.model.access.csv',
-        'views/menu.xml',
-        'views/activity_view.xml',
-        'views/lock_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-    'license': 'AGPL-3',
-}
+from . import activity
+from . import lock
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

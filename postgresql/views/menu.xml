@@ -25,7 +25,7 @@
         ##############################################################################
 
         <menuitem id="menu_postgresql" 
-            sequence="2000"
+            sequence="200"
             name="PostgreSQL"
             groups="group_postgresql"/>
 

@@ -55,21 +55,22 @@ class PgActivity(orm.Model):
         logger.info('Create postgres_activity report view')
         pid_field = cr._cnx.server_version >= 90200 and 'pid' or 'procpid'
         query_field = cr._cnx.server_version >= 90200 and 'query' or 'current_query'
-        cr.execute("""CREATE OR REPLACE VIEW postgres_activity AS
-                      SELECT """ + pid_field + """ AS id,
-                             datname AS "name",
-                             """ + pid_field + """ AS pid,
-                             usename as dbuser,
-                             application_name as appname,
-                             host(client_addr) as hostip,
-                             client_hostname as hostname,
-                             TO_CHAR(backend_start, 'YYYY-MM-DD HH24:MI:SS') as start_backend,
-                             TO_CHAR(xact_start, 'YYYY-MM-DD HH24:MI:SS') as start_transaction,
-                             TO_CHAR(query_start, 'YYYY-MM-DD HH24:MI:SS') as start_query,
-                             """ + query_field + """ as query
-                        FROM pg_stat_activity
-                       WHERE """ + pid_field + """ != pg_backend_pid()
-                         AND datname = current_database()""")
+        cr.execute("""
+ CREATE OR REPLACE VIEW postgres_activity AS
+ SELECT """ + pid_field + """ AS id,
+        datname AS "name",
+        """ + pid_field + """ AS pid,
+        usename as dbuser,
+        application_name as appname,
+        host(client_addr) as hostip,
+        client_hostname as hostname,
+        TO_CHAR(backend_start, 'YYYY-MM-DD HH24:MI:SS') as start_backend,
+        TO_CHAR(xact_start, 'YYYY-MM-DD HH24:MI:SS') as start_transaction,
+        TO_CHAR(query_start, 'YYYY-MM-DD HH24:MI:SS') as start_query,
+        """ + query_field + """ as query
+   FROM pg_stat_activity
+  WHERE """ + pid_field + """ != pg_backend_pid()
+    AND datname = current_database()""")
 
     def disconnect(self, cr, uid, ids, context=None):
         """

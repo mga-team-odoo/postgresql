@@ -22,6 +22,7 @@
 #
 ##############################################################################
 
-from . import models
+from . import activity
+from . import lock
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

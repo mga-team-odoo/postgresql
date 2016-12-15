@@ -41,7 +41,7 @@ before_script:
 
 env:
   matrix:
-    - PGVERSION=9.5 VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
+    - PGVERSION=9.5 VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0" TESTS="0"
     - PGVERSION=9.5 VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
     - PGVERSION=9.4 VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
     - PGVERSION=9.4 VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
@@ -51,6 +51,8 @@ env:
     - PGVERSION=9.2 VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
     - PGVERSION=9.1 VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
     - PGVERSION=9.1 VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
+    - PGVERSION=9.3 VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="1" TESTS="0"
+    - PGVERSION=9.3 VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0" TESTS="1"
 
 install:
     - git clone https://github.com/OCA/maintainer-quality-tools.git $HOME/maintainer-quality-tools

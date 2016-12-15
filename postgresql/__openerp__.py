@@ -28,7 +28,8 @@
     'category': 'Tools',
     'description': """PostgreSQL Management
 
-This module can show statistics on the database, and create new user with GRANT SELECT
+This module can show statistics on the database,
+and create new user with GRANT SELECT
 
 !!! Before install this module, execute this query as a PostgreSQL SuperUSER
 
@@ -45,12 +46,9 @@ GRANT oerpadmin TO openerp;
         'views/menu.xml',
         'views/activity_view.xml',
         'views/lock_view.xml',
-        #'wizard/wizard.xml',
-        #'report/report.xml',
     ],
     'demo': [],
     'test': [],
-    #'external_dependancies': {'python': ['kombu'], 'bin': ['which']},
     'installable': True,
     'active': False,
     'license': 'AGPL-3',
